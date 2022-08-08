@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Button from '../components/Button';
 import { Link } from 'react-router-dom';
+import "./Titi.css";
 
 export default function Titi() {
     const [ inputText, setInputtext ] = useState("");
@@ -10,7 +11,7 @@ export default function Titi() {
     }
 
     return(
-        <div>
+        <div className="titiContainer">
             <h1>Titi</h1>
             <p>Text</p>
             <Link to="/toto">

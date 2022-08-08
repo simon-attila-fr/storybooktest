@@ -1,0 +1,13 @@
+.titiContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.titiContainer h1 {
+    margin: 8vh 0;
+}
+
+.titiContainer p, .titiContainer input {
+    margin: 4vh 0;
+}

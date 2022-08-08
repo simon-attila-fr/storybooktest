@@ -1,0 +1,13 @@
+.totoContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.totoContainer h1 {
+    margin: 8vh 0;
+}
+
+.totoContainer p, .totoContainer input {
+    margin: 4vh 0;
+}
