@@ -1,13 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Toto from './pages/Toto';
+import Titi from './pages/Titi';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="toto" element={<Toto />} />
+        <Route path="titi" element={<Titi />} />
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
