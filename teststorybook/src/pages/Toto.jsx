@@ -11,7 +11,7 @@ export default function Toto() {
             <Link to="/">
                 <Button text="Home" />
             </Link>
-            <Checkbox />
+            <Checkbox checkboxLabel="True of false?"/>
         </div>
     )
 }

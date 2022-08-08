@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import "./Checkbox.css"
 
-export default function Checkbox() {
+export default function Checkbox({ checkboxLabel }) {
     const [ isChecked, setIsChecked ] = useState(false);
 
     const handleCheck = (e) => {
@@ -10,8 +10,9 @@ export default function Checkbox() {
 
     return(
         <div>
-        <input type="checkbox" onChange={handleCheck}></input>
-        <p className={isChecked ? "checked" : "notChecked"}>{isChecked.toString()}</p>
+            <label for="checkbox">{checkboxLabel}</label>
+            <input type="checkbox" id="checkbox" onChange={handleCheck}></input>
+            <p className={isChecked ? "checked" : "notChecked"}>{isChecked.toString()}</p>
         </div>
     )
 }
