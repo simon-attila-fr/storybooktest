@@ -1,19 +1,31 @@
 import PropTypes from 'prop-types';
 
-export default function Button( {text, buttonTextColor, buttonBackgroundColor, buttonBorder, buttonBorderSize, buttonBorderColor} ) {
-
+export default function Button({
+    text,
+    textColor,
+    backgroundColor,
+    border,
+    borderSize,
+    borderColor,
+}) {
     return(
-        <button style={{color: buttonTextColor,
-        backgroundColor: buttonBackgroundColor,
-        border: `${buttonBorder} ${buttonBorderSize} ${buttonBorderColor}`}}>{text}</button>
+        <button
+            style={{
+                color: textColor,
+                backgroundColor: backgroundColor,
+                border: `${border} ${borderSize} ${borderColor}`
+            }}
+        >
+            {text}
+        </button>
     )
 }
 
 Button.propTypes = {
     text: PropTypes.string.isRequired,
-    buttonTextColor: PropTypes.string,
-    buttonBackgroundColor: PropTypes.string,
-    buttonBorder: PropTypes.string,
-    buttonBorderSize: PropTypes.string,
-    buttonBorderColor: PropTypes.string,
+    textColor: PropTypes.string,
+    backgroundColor: PropTypes.string,
+    border: PropTypes.string,
+    borderSize: PropTypes.string,
+    borderColor: PropTypes.string,
 };

@@ -11,19 +11,19 @@ const Template = args => <Button {...args} />;
 export const Default = Template.bind({});
 Default.args = {
     text: "Default text",
-    buttonTextColor: "blue",
-    buttonBackgroundColor: "yellow",
-    buttonBorder: "dashed",
-    buttonBorderSize: "2px",
-    buttonBorderColor: "blue",
+    textColor: "blue",
+    backgroundColor: "yellow",
+    border: "dashed",
+    borderSize: "2px",
+    borderColor: "blue",
 };
 
 export const SecondCase = Template.bind({});
 SecondCase.args = {
     text: "Second case",
-    buttonTextColor: "darkolivegreen",
-    buttonBackgroundColor: "greenyellow",
-    buttonBorder: "solid",
-    buttonBorderSize: "4px",
-    buttonBorderColor: "darkolivegreen",
+    textColor: "darkolivegreen",
+    backgroundColor: "greenyellow",
+    border: "solid",
+    borderSize: "4px",
+    borderColor: "darkolivegreen",
 }
