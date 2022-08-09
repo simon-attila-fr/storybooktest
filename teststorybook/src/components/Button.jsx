@@ -25,7 +25,13 @@ Button.propTypes = {
     text: PropTypes.string.isRequired,
     textColor: PropTypes.string,
     backgroundColor: PropTypes.string,
-    border: PropTypes.string,
+    /** 
+     * Choose a value to define the style of the border of your element:
+    */
+    border: PropTypes.oneOf(['none', 'hidden', 'dotted', 'dashed', 'solid', 'double', 'groove', 'ridge', 'inset', 'outset']),
     borderSize: PropTypes.string,
     borderColor: PropTypes.string,
 };
+Button.defaultProps = {
+    text: "Default text"
+}
