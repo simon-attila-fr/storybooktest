@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 import "./Checkbox.css"
 
 export default function Checkbox({ checkboxLabel }) {
@@ -15,4 +16,14 @@ export default function Checkbox({ checkboxLabel }) {
             <p className={isChecked ? "checked" : "notChecked"}>{isChecked.toString()}</p>
         </div>
     )
+}
+
+Checkbox.propTypes = {
+    /**
+     * The text attached to this element.
+     */
+    checkboxLabel: PropTypes.string.isRequired
+}
+Checkbox.defaultProps = {
+    checkboxLabel: "True or false?"
 }
