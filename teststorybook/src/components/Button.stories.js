@@ -14,7 +14,7 @@ Default.args = {
     textColor: "blue",
     backgroundColor: "yellow",
     border: "dashed",
-    borderSize: "2px",
+    borderSize: "5px",
     borderColor: "blue",
 };
 
