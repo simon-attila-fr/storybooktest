@@ -1,0 +1,297 @@
+@import "./variables";
+
+@mixin rtl-value($property, $leftToRightValue, $rightToLeftValue) {
+    html[dir=rtl] & {
+        #{$property}: $rightToLeftValue;
+    }
+
+    html:not([dir=rtl]) & {
+        #{$property}: $leftToRightValue;
+    }
+}
+
+@mixin rtl-prop($leftToRightProp, $rightToLeftProp, $leftToRightValue, $rightToLeftValue: null) {
+    @if ($rightToLeftValue == null) {
+        $rightToLeftValue: $leftToRightValue;
+    }
+
+    html[dir=rtl] & {
+        #{$rightToLeftProp}: $rightToLeftValue;
+    }
+
+    html:not([dir=rtl]) & {
+        #{$leftToRightProp}: $leftToRightValue;
+    }
+}
+
+@mixin text-size-100() {
+    font-size: $text-100-font-size;
+    line-height: $text-100-line-height;
+}
+
+@mixin text-size-200() {
+    font-size: $text-200-font-size;
+    line-height: $text-200-line-height;
+}
+
+@mixin text-size-300() {
+    font-size: $text-300-font-size;
+    line-height: $text-300-line-height;
+}
+
+
+@mixin text-100() {
+    @include text-size-100;
+    color: $text-100-color;
+    font-weight: 400;
+}
+
+@mixin text-200() {
+    @include text-size-200;
+    color: $text-200-color;
+}
+
+@mixin text-201() {
+    @include text-200;
+    line-height: 100%
+}
+
+@mixin text-300() {
+    @include text-size-300;
+    color: $text-300-color;
+}
+
+@mixin heading-100() {
+    font-size: $heading-100-font-size;
+    line-height: $heading-100-line-height;
+    color: $heading-100-color;
+    font-weight: 400;
+}
+
+@mixin heading-200() {
+    @include heading-100;
+    font-size: $heading-200-font-size;
+    line-height: $heading-200-line-height;
+}
+
+@mixin heading-300() {
+    @include heading-100;
+    font-size: $heading-300-font-size;
+    line-height: $heading-300-line-height;
+}
+
+@mixin heading-400() {
+    @include heading-100;
+    font-size: $heading-400-font-size;
+    line-height: $heading-400-line-height;
+}
+
+@mixin heading-410() {
+    @include heading-400;
+    font-weight: 700;
+}
+
+@mixin heading-500() {
+    @include heading-100;
+    font-size: $heading-500-font-size;
+    line-height: $heading-500-line-height;
+}
+
+@mixin heading-510() {
+    @include heading-500;
+    font-weight: 700;
+}
+
+@mixin is-invalid() {
+    &.is-invalid {
+        border-color: $color-critical;
+
+        &:focus {
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem $identity-503;
+        }
+    }
+}
+
+@mixin input-border() {
+    border: 1px solid $identity-203;
+    border-radius: $border-radius-6;
+    box-shadow: none;
+}
+
+@mixin input-border-focus() {
+    border-color: $identity-200;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem $identity-203;
+}
+
+@mixin input-border-hover() {
+    border-color: $identity-200;
+}
+
+@mixin hyperlink($color: $identity-200, $hoverBackgroundColor: $identity-202) {
+    @include text-200;
+    height: fit-content;
+    border-radius: 0;
+    padding: 2px 0px;
+    color: $color;
+    transition: color .15s ease-in-out,
+                background-color .15s ease-in-out,
+                border-color .15s ease-in-out,
+                box-shadow .15s ease-in-out;
+    border: solid 1px transparent;
+    border-bottom: 1px dotted $color;
+    text-decoration: none;
+
+    &:hover {
+        background-color: $hoverBackgroundColor;
+        border-bottom: 1px solid $color;
+        text-decoration: none;
+    }
+
+    &:active,
+    &:focus {
+        border-radius: 3px;
+        background-color: $hoverBackgroundColor;
+        border: 1px solid $color;
+        text-decoration: none;
+    }
+
+    &:disabled {
+        color: $identity-203;
+        border-bottom: 1px dotted $identity-203;
+    }
+}
+
+/*
+* BreakPoints
+* https://raw.githubusercontent.com/twbs/bootstrap/master/scss/mixins/_breakpoints.scss
+*/
+
+// Breakpoint viewport sizes and media queries.
+//
+// Breakpoints are defined as a map of (name: minimum width), order from small to large:
+//
+//    (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px)
+//
+// The map defined in the `$grid-breakpoints` global variable is used as the `$breakpoints` argument by default.
+
+// Name of the next breakpoint, or null for the last breakpoint.
+//
+//    >> breakpoint-next(sm)
+//    md
+//    >> breakpoint-next(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+//    md
+//    >> breakpoint-next(sm, $breakpoint-names: (xs sm md lg xl))
+//    md
+@function breakpoint-next($name, $breakpoints: $grid-breakpoints, $breakpoint-names: map-keys($breakpoints)) {
+  $n: index($breakpoint-names, $name);
+  @if not $n {
+    @error "breakpoint `#{$name}` not found in `#{$breakpoints}`";
+  }
+  @return if($n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);
+}
+
+// Minimum breakpoint width. Null for the smallest (first) breakpoint.
+//
+//    >> breakpoint-min(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+//    576px
+@function breakpoint-min($name, $breakpoints: $grid-breakpoints) {
+  $min: map-get($breakpoints, $name);
+  @return if($min != 0, $min, null);
+}
+
+// Maximum breakpoint width. Null for the largest (last) breakpoint.
+// The maximum value is calculated as the minimum of the next one less 0.02px
+// to work around the limitations of `min-` and `max-` prefixes and viewports with fractional widths.
+// See https://www.w3.org/TR/mediaqueries-4/#mq-min-max
+// Uses 0.02px rather than 0.01px to work around a current rounding bug in Safari.
+// See https://bugs.webkit.org/show_bug.cgi?id=178261
+//
+//    >> breakpoint-max(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+//    767.98px
+@function breakpoint-max($name, $breakpoints: $grid-breakpoints) {
+  $next: breakpoint-next($name, $breakpoints);
+  @return if($next, breakpoint-min($next, $breakpoints) - .02, null);
+}
+
+// Returns a blank string if smallest breakpoint, otherwise returns the name with a dash in front.
+// Useful for making responsive utilities.
+//
+//    >> breakpoint-infix(xs, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+//    ""  (Returns a blank string)
+//    >> breakpoint-infix(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+//    "-sm"
+@function breakpoint-infix($name, $breakpoints: $grid-breakpoints) {
+  @return if(breakpoint-min($name, $breakpoints) == null, "", "-#{$name}");
+}
+
+// Media of at least the minimum breakpoint width. No query for the smallest breakpoint.
+// Makes the @content apply to the given breakpoint and wider.
+@mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
+  $min: breakpoint-min($name, $breakpoints);
+  @if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+// Media of at most the maximum breakpoint width. No query for the largest breakpoint.
+// Makes the @content apply to the given breakpoint and narrower.
+@mixin media-breakpoint-down($name, $breakpoints: $grid-breakpoints) {
+  $max: breakpoint-max($name, $breakpoints);
+  @if $max {
+    @media (max-width: $max) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+// Media that spans multiple breakpoint widths.
+// Makes the @content apply between the min and max breakpoints
+@mixin media-breakpoint-between($lower, $upper, $breakpoints: $grid-breakpoints) {
+  $min: breakpoint-min($lower, $breakpoints);
+  $max: breakpoint-max($upper, $breakpoints);
+
+  @if $min != null and $max != null {
+    @media (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  } @else if $max == null {
+    @include media-breakpoint-up($lower, $breakpoints) {
+      @content;
+    }
+  } @else if $min == null {
+    @include media-breakpoint-down($upper, $breakpoints) {
+      @content;
+    }
+  }
+}
+
+// Media between the breakpoint's minimum and maximum widths.
+// No minimum for the smallest breakpoint, and no maximum for the largest one.
+// Makes the @content apply only to the given breakpoint, not viewports any wider or narrower.
+@mixin media-breakpoint-only($name, $breakpoints: $grid-breakpoints) {
+  $min: breakpoint-min($name, $breakpoints);
+  $max: breakpoint-max($name, $breakpoints);
+
+  @if $min != null and $max != null {
+    @media (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  } @else if $max == null {
+    @include media-breakpoint-up($name, $breakpoints) {
+      @content;
+    }
+  } @else if $min == null {
+    @include media-breakpoint-down($name, $breakpoints) {
+      @content;
+    }
+  }
+}
+
