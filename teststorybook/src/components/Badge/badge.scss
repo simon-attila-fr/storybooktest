@@ -1,0 +1,11 @@
+@import "variables";
+@import "mixins";
+
+.rods-badge {
+    color: $light-100;
+    @include text-size-100;
+    font-weight: bold;
+    background-color: $identity-200;
+    padding: 0 $spacing-50;
+    border-radius: $border-radius-4;
+}
