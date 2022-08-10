@@ -1,0 +1,203 @@
+@import "functions";
+
+$font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+$font-size-base: 16px;
+$identity-100: #00C7B1;
+$identity-101: #F5FBFA;
+$identity-102: #E7F8F5;
+$identity-103: #D0F0EB;
+$identity-104: #81DBCD;
+$identity-110: #01473F;
+
+$identity-200: #142E7B;
+$identity-201: #F2F3F8;
+$identity-202: #E2E6EE;
+$identity-203: #C6CBDE;
+$identity-204: #6C7AAA;
+$identity-210: #0C2059;
+
+$identity-300: #0086D6;
+$identity-301: #F3F8FC;
+$identity-302: #E6F0FA;
+$identity-303: #CAE0F5;
+$identity-304: #75B2E5;
+$identity-310: #024360;
+
+$identity-400: #EFB71B;
+$identity-401: #FEFBF4;
+$identity-402: #FCF6E5;
+$identity-403: #FBEDCC;
+$identity-404: #F4D17A;
+$identity-410: #614700;
+
+$identity-500: #CE0037;
+$identity-501: #FDF2F3;
+$identity-502: #FBE3E7;
+$identity-503: #F6C8CD;
+$identity-504: #E46F81;
+$identity-510: #980026;
+
+$identity-600: #4BC467;
+$identity-601: #F6FBF7;
+$identity-602: #EBF8EC;
+$identity-603: #D5F1DA;
+$identity-604: #93D99E;
+$identity-610: #0D471B;
+
+$extra-103: #E2CBF5;
+$extra-110: #592485;
+$extra-203: #C4E9F2;
+$extra-210: #005461;
+$extra-303: #DBE0C1;
+$extra-310: #535C29;
+$extra-403: #FCEAA9;
+$extra-410: #705924;
+$extra-503: #FFCDB8;
+$extra-510: #642A00;
+$extra-603: #F5C4C1;
+$extra-610: #660C0B;
+$extra-703: #F7D0DC;
+$extra-710: #94153C;
+$extra-803: #EED7C7;
+$extra-810: #67462F;
+$extra-903: #DEE0DF;
+$extra-910: #525453;
+
+$light-100: #FFFFFF;
+$light-200: #F6F8FB;
+$light-300: #DEE5EF;
+$light-400: #CBD2DB;
+$light-500: #898D92;
+$light-600: #565656;
+$light-700: #000000;
+
+$color-text: $light-600;
+$color-primary: $identity-200;
+$color-secondary: $identity-100;
+$color-tertiary: $light-500;
+$color-critical: $identity-500;
+$color-success: $identity-600;
+
+$color-link: $light-700;
+$color-link-blue: $identity-200;
+$color-input-border: $light-400;
+
+$spacing-25: 3px;
+$spacing-50: 6px;
+$spacing-100: 13px;
+$spacing-200: 26px;
+$spacing-300: 39px;
+$spacing-400: 65px;
+$spacing-500: 105px;
+
+$border-radius-2: 2px;
+$border-radius-3: 3px;
+$border-radius-4: 4px;
+$border-radius-5: 5px;
+$border-radius-6: 6px;
+$border-radius-18: 18px;
+
+$heading-100-font-size: 1.125rem;
+$heading-100-line-height: 1.3;
+$heading-100-color: $light-700;
+
+$heading-200-font-size: 1.375rem;
+$heading-200-line-height: 1.2;
+$heading-200-color: $light-700;
+
+$heading-300-font-size: 1.625rem;
+$heading-300-line-height: 1.3;
+$heading-300-color: $light-700;
+
+$heading-400-font-size: 1.938rem;
+$heading-400-line-height: 1.4;
+$heading-400-color: $light-700;
+
+$heading-500-font-size: 2.313rem;
+$heading-500-line-height: 1.35;
+$heading-500-color: $light-700;
+
+$text-100-font-size: 0.75rem;
+$text-100-line-height: 1.4;
+$text-100-color: $light-600;
+
+$text-200-font-size: 0.875rem;
+$text-200-line-height: 1.3;
+$text-200-color: $light-600;
+
+$text-300-font-size: 1rem;
+$text-300-line-height: 1.3;
+$text-300-color: $light-600;
+
+$icon-button-size-100: 1rem;
+$icon-button-size-200: 1.25rem;
+
+$zindex-dropdown:                   1000;
+$zindex-sticky:                     1020;
+$zindex-fixed:                      1030;
+$zindex-modal-backdrop:             1040;
+$zindex-modal:                      1050;
+$zindex-popover:                    1060;
+$zindex-tooltip:                    1070;
+
+$shadow-100: 0 1px 3px 0 rgba(0, 0, 0, 0.06);
+$shadow-101: 0 1px 3px 0 rgba(0, 0, 0, 0.39);
+$shadow-200: 0 6px 13px 0 rgba(0, 0, 0, 0.13);
+$shadow-201: 0 0 13px 0 rgba(0, 0, 0, 0.13);
+$shadow-202: 0 0 13px 0 rgba(0, 0, 0, 0.26);
+$shadow-300: 0 13px 26px 0 rgba(0, 0, 0, 0.13);
+$shadow-301: 6px 0 13px 0 rgba(0, 0, 0, 0.26);
+
+$control-100-height: 28px;
+$control-200-height: 36px;
+$control-300-height: 44px;
+
+$input-color:               $light-700;
+$input-bg:                  $light-100;
+$input-disabled-bg:         $identity-201;
+$input-font-size:           $text-200-font-size;
+$input-line-height:         $text-200-line-height;
+$input-select-icon:         url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512' width='448' height='512'%3E%3Cpath d='M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z'/%3E%3C/svg%3E");
+$input-select-icon-size:    8px;
+$input-height-switch:           24px;
+$input-width-switch:            40px;
+$input-switch-indicator-size:   20px;
+$input-check-size:          1.067rem;
+$input-check-margin:        0.375rem;
+
+$modal-height-margin: 40px;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+
+$backoffice-nav-width: 205px;
+$backoffice-nav-right-gutter-desktop: $spacing-400;
+
+:export {
+    identity100: $identity-100;
+
+    identity200: $identity-200;
+    identity203: $identity-203;
+
+    identity300: $identity-300;
+
+    light100: $light-100;
+    light200: $light-200;
+    light300: $light-300;
+    light400: $light-400;
+    light500: $light-500;
+    light600: $light-600;
+    light700: $light-700;
+    colorCritical: $color-critical;
+
+    borderRadius4: $border-radius-4;
+
+    spacing100: $spacing-100;
+
+    breakpointXL: map-get($grid-breakpoints, xl);
+}

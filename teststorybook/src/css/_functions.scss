@@ -1,0 +1,32 @@
+@function str-replace($string, $search, $replace: "") {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+
+  @return $string;
+}
+
+@function color-hover($color) {
+    @return mix(#fff, $color, 30%);
+}
+
+@function color-focus($color) {
+    @return mix(#000, $color, 25%);
+}
+
+@function color-active($color) {
+    @return mix(#000, $color, 15%);
+}
+
+@function color-disable($color) {
+    @return mix(#fff, $color, 60%);
+}
+
+@function color-contrasted($color, $dark, $light, $threshold) {
+    @if lightness($color) < $threshold {
+        @return $light;
+    }
+    @return $dark;
+}
